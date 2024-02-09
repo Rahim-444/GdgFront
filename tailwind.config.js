@@ -6,6 +6,7 @@ export default {
       //add a new color
       colors: {
         mainBlue: "#013958",
+        Green: "#0D9D58",
       },
     },
   },
