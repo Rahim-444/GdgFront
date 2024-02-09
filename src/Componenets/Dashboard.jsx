@@ -61,6 +61,28 @@ let data2 = {
     },
   ],
 };
+const options = {
+  scales: {
+    x: {
+      ticks: {
+        color: "white",
+      },
+    },
+    y: {
+      ticks: {
+        color: "white",
+      },
+    },
+  },
+  plugins: {
+    legend: {
+      labels: {
+        color: "white",
+      },
+    },
+  },
+};
+
 let Notifications = [
   {
     name: "rahim",
@@ -80,7 +102,7 @@ const Dashboard = () => {
       <div className="flex  justify-center">
         <div className="flex w-[98%] gap-1">
           <div className="flex flex-col px-2  h-screen w-[80%]">
-            <div className="flex rounded-2xl w-full bg-mainBlue h-[23%] justify-between items-center mt-8 overflow-hidden">
+            <div className="flex rounded-2xl w-full bg-mainBlue h-[23%] justify-between items-center mt-2 overflow-hidden">
               <div className="felx flex-col ml-10">
                 <h1 className="text-3xl text-white">Hello Abderrahim !</h1>
                 <p>its good to see you again!</p>
@@ -127,18 +149,6 @@ const Dashboard = () => {
   );
 };
 
-const Chart = () => {
-  return (
-    <>
-      <h1 className="text-4xl font-bold text-center mt-5 mb-8">
-        Your Statistics
-      </h1>
-      <div className="h-4/6 w-full ml-5 flex justify-center">
-        <Bar data={data} />
-      </div>
-    </>
-  );
-};
 const ChartSocial = () => {
   return (
     <>
@@ -146,11 +156,23 @@ const ChartSocial = () => {
         Your Statistics
       </h1>
       <div className="h-4/6 w-full ml-5 flex justify-center">
-        <Line data={data2} />
+        <Bar data={data} options={options} />
       </div>
     </>
   );
 };
+// const ChartSocial = () => {
+//   return (
+//     <>
+//       <h1 className="text-4xl font-bold text-center mt-5 mb-8">
+//         Your Statistics
+//       </h1>
+//       <div className="h-4/6 w-full ml-5 flex justify-center text-white">
+//         <Line data={data} options={options} />
+//       </div>
+//     </>
+//   );
+// };
 const Notifs = ({ name, time, description }) => {
   return (
     <div>
