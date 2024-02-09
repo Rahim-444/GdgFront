@@ -3,6 +3,7 @@ import separator from "../assets/lineSeparator.svg";
 import { Chart as Chartjs } from "chart.js/auto";
 import { Bar, Line } from "react-chartjs-2";
 import WeekCheckbox from "./Checkbox";
+import { useState } from "react";
 
 let data = {
   labels: [
@@ -98,6 +99,8 @@ let Notifications = [
 ];
 
 const Dashboard = () => {
+  const [input, setInput] = useState("");
+  const [optimalTime, setOptimalTime] = useState("10:00");
   return (
     <>
       <div className="flex  justify-center">
@@ -111,7 +114,7 @@ const Dashboard = () => {
               <img src={shapes} alt="shapes" className="w-[37%] mr-1" />
             </div>
             <div className="flex flex-col bg-mainBlue h-[55%] mt-5 rounded-2xl justify-center ">
-              <ChartSocial />
+              <ChartSocial optimalTime={optimalTime} />
             </div>
           </div>
           <img src={separator} alt="separator" className="h-[80%]" />
@@ -125,8 +128,17 @@ const Dashboard = () => {
                 type="text"
                 placeholder="description"
                 className="w-5/6  rounded-lg border-2 h-40 bg-transparent border-white mt-1 placeholder-mainBlue"
+                onChange={(e) => {
+                  setInput(e.target.value);
+                }}
               />
-              <button className="bg-[#4580F3] w-3/4 h-12 rounded-tl-xl rounded-br-xl text-white">
+              <button
+                className="bg-[#4580F3] w-3/4 h-12 rounded-tl-xl rounded-br-xl text-white"
+                type="submit"
+                onClick={() => {
+                  window.alert(input);
+                }}
+              >
                 Post
               </button>
             </div>
@@ -156,24 +168,12 @@ const ChartSocial = () => {
       <h1 className="text-4xl font-bold text-center mt-5 mb-8">
         Your Statistics
       </h1>
-      <div className="h-4/6 w-full ml-5 flex justify-center">
-        <Bar data={data} options={options} />
+      <div className="h-4/6 w-full ml-5 flex justify-center text-white">
+        <Line data={data} options={options} />
       </div>
     </>
   );
 };
-// const ChartSocial = () => {
-//   return (
-//     <>
-//       <h1 className="text-4xl font-bold text-center mt-5 mb-8">
-//         Your Statistics
-//       </h1>
-//       <div className="h-4/6 w-full ml-5 flex justify-center text-white">
-//         <Line data={data} options={options} />
-//       </div>
-//     </>
-//   );
-// };
 // const ChartSocial = () => {
 //   return (
 //     <>
