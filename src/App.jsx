@@ -5,7 +5,7 @@ import Nav from "./Componenets/Nav";
 const App = () => {
   return (
     <>
-      <Nav/>
+      <Nav />
       <Dashboard />
     </>
   );
