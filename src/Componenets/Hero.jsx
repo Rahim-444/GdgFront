@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"
 import RightSvg from "../assets/RightSvg.svg";
 import Zalij from "../assets/zalij.svg";
 const Hero = () => {
@@ -13,12 +14,17 @@ const Hero = () => {
             Boost Visibility and Reach Your Audience When it Matters Most
           </p>
           <div className="Buttons flex justify-center gap-4 mt-4">
-            <button className="bg-blue-900 Box-Shadow py-1 px-16 h-16 rounded-tl-xl rounded-br-xl text-white">
+            <Link to="discord">
+             <button className="bg-blue-900 Box-Shadow py-1 px-16 h-16 rounded-tl-xl rounded-br-xl text-white">
               Discord
             </button>
+            </Link>
+            <Link to="social">
             <button className="bg-blue-900 Box-Shadow py-1 px-10 h-16 rounded-tl-xl rounded-br-xl text-white">
               Social media
             </button>
+            </Link>
+            
           </div>
         </div>
         <div className="SlideAnimationLeft">

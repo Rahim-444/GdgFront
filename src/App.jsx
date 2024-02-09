@@ -1,16 +1,24 @@
-import Hero from "./Componenets/Hero";
-import "./App.css";
-import Nav from "./Componenets/Nav";
-import Dashboard from "./Componenets/DashboardPost";
-import DiscordDashboard from "./Componenets/DashboardDiscord";
-
-const App = () => {
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Hero from './Componenets/Hero'; // Import the component for the path "/"
+import DiscordDashboard from './Componenets/DashboardDiscord'; // Import the component for the path "/discord"
+import Dashboard from './Componenets/DashboardPost';
+import './App.css'
+import Nav from'./Componenets/Nav'
+function App() {
   return (
     <>
-      <Nav />
-      <Dashboard />
+    <Nav/>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Hero />} />
+        <Route path="discord" element={<DiscordDashboard />} />
+        <Route path="social" element={<Dashboard />} />
+      </Routes>
+    </Router>
     </>
+    
   );
-};
+}
 
 export default App;
