@@ -61,11 +61,33 @@ let data2 = {
     },
   ],
 };
+const options = {
+  scales: {
+    x: {
+      ticks: {
+        color: "white",
+      },
+    },
+    y: {
+      ticks: {
+        color: "white",
+      },
+    },
+  },
+  plugins: {
+    legend: {
+      labels: {
+        color: "white",
+      },
+    },
+  },
+};
+
 let Notifications = [
   {
-    name: "Abderrahim",
+    name: "rahim",
     time: "10:00",
-    description: "You have a new message from a client",
+    description: "Front end session",
   },
   {
     name: "Omar",
@@ -80,7 +102,7 @@ const Dashboard = () => {
       <div className="flex  justify-center">
         <div className="flex w-[98%] gap-1">
           <div className="flex flex-col px-2  h-screen w-[80%]">
-            <div className="flex rounded-2xl w-full bg-mainBlue h-[23%] justify-between items-center mt-8">
+            <div className="flex rounded-2xl w-full bg-mainBlue h-[23%] justify-between items-center mt-2 overflow-hidden">
               <div className="felx flex-col ml-10">
                 <h1 className="text-3xl text-white">Hello Abderrahim !</h1>
                 <p>its good to see you again!</p>
@@ -88,7 +110,7 @@ const Dashboard = () => {
               <img src={shapes} alt="shapes" className="w-[37%] mr-1" />
             </div>
             <div className="flex flex-col bg-mainBlue h-[55%] mt-5 rounded-2xl justify-center ">
-              <Chart />
+              <ChartSocial />
             </div>
           </div>
           <img src={separator} alt="separator" className="h-[80%]" />
@@ -110,40 +132,61 @@ const Dashboard = () => {
             <h1 className="text-xl text-mainBlue ml-5 font-bold mt-5">
               Notifications
             </h1>
-            <Notifs />
+            <div>
+              {Notifications.map((notification, index) => (
+                <Notifs
+                  key={index}
+                  name={notification.name}
+                  time={notification.time}
+                  description={notification.description}
+                />
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-      <div className="w-1/2"></div>
-      <div className="w-1/2">
-        <Line data={data2} />
       </div>
     </>
   );
 };
 
-const Chart = () => {
+const ChartSocial = () => {
   return (
     <>
       <h1 className="text-4xl font-bold text-center mt-5 mb-8">
         Your Statistics
       </h1>
       <div className="h-4/6 w-full ml-5 flex justify-center">
-        <Bar data={data} />
+        <Bar data={data} options={options} />
       </div>
     </>
   );
 };
-const Notifs = () => {
+// const ChartSocial = () => {
+//   return (
+//     <>
+//       <h1 className="text-4xl font-bold text-center mt-5 mb-8">
+//         Your Statistics
+//       </h1>
+//       <div className="h-4/6 w-full ml-5 flex justify-center text-white">
+//         <Line data={data} options={options} />
+//       </div>
+//     </>
+//   );
+// };
+const Notifs = ({ name, time, description }) => {
   return (
     <div>
       <div className="flex flex-col gap-3 bg-mainBlue w-full rounded-xl h-40 items-center mt-2 overflow-hidden relative">
-        <div className="bg-red-600 rounded-full w-48 h-48 absolute ml-72 border-8 border-green-500">
-          <h1>`${name} Planned a meaning`</h1>
+        <div className="bg-red-600 rounded-full w-48 h-48 absolute ml-72 border-8 border-green-500 z-0"></div>
+        <div className="flex flex-col items-center justify-center h-full">
+          <h1 className="text-bold text-xl pl-1 relative pt-2">
+            {name} Planned a meeting
+          </h1>
+          <h1 className="text-bold text-xl pl-1 relative pt-2">{time}</h1>
+          <p className="relative">{description}</p>
         </div>
       </div>
     </div>
   );
 };
-
 export default Dashboard;
