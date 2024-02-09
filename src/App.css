@@ -9,7 +9,37 @@ body {
   line-height: 1.5;
   color: #e8f3f9;
 }
+.Box-Shadow {
+  box-shadow: 0 4px 48px rgba(0, 0, 0, 0.5);
+}
 
+.SlideAnimationRight {
+  animation: slideRight 1.2s;
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.SlideAnimationLeft {
+  animation: slideLeft 1.2s;
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 body::-webkit-scrollbar {
   display: none;
 }
