@@ -7,7 +7,7 @@ const App = () => {
   return (
     <>
       <Nav />
-     <Hero />
+      <Dashboard />
     </>
   );
 };

@@ -111,7 +111,7 @@ const Dashboard = () => {
               <img src={shapes} alt="shapes" className="w-[37%] mr-1" />
             </div>
             <div className="flex flex-col bg-mainBlue h-[55%] mt-5 rounded-2xl justify-center ">
-              <WeekCheckbox />
+              <ChartSocial />
             </div>
           </div>
           <img src={separator} alt="separator" className="h-[80%]" />
@@ -150,18 +150,18 @@ const Dashboard = () => {
   );
 };
 
-// const ChartSocial = () => {
-//   return (
-//     <>
-//       <h1 className="text-4xl font-bold text-center mt-5 mb-8">
-//         Your Statistics
-//       </h1>
-//       <div className="h-4/6 w-full ml-5 flex justify-center">
-//         <Bar data={data} options={options} />
-//       </div>
-//     </>
-//   );
-// };
+const ChartSocial = () => {
+  return (
+    <>
+      <h1 className="text-4xl font-bold text-center mt-5 mb-8">
+        Your Statistics
+      </h1>
+      <div className="h-4/6 w-full ml-5 flex justify-center">
+        <Bar data={data} options={options} />
+      </div>
+    </>
+  );
+};
 // const ChartSocial = () => {
 //   return (
 //     <>
@@ -174,15 +174,15 @@ const Dashboard = () => {
 //     </>
 //   );
 // };
-const ChartSocial = () => {
-  return (
-    <>
-      <h1 className="text-4xl font-bold text-center mt-5 mb-8">
-        Your Statistics
-      </h1>
-    </>
-  );
-};
+// const ChartSocial = () => {
+//   return (
+//     <>
+//       <h1 className="text-4xl font-bold text-center mt-5 mb-8">
+//         Your Statistics
+//       </h1>
+//     </>
+//   );
+// };
 const Notifs = ({ name, time, description }) => {
   return (
     <div>
@@ -203,6 +203,9 @@ const Notifs = ({ name, time, description }) => {
 const Schudule = () => {
   return (
     <>
+      <h1 className="text-2xl font-bold text-center mt-5 mb-3">
+        Choose a Time
+      </h1>
       <WeekCheckbox />
       <input className="bg-transparent rounded"></input>
     </>
