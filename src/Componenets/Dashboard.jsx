@@ -2,6 +2,7 @@ import shapes from "../assets/shapes.svg";
 import separator from "../assets/lineSeparator.svg";
 import { Chart as Chartjs } from "chart.js/auto";
 import { Bar, Line } from "react-chartjs-2";
+import WeekCheckbox from "./Checkbox";
 
 let data = {
   labels: [
@@ -110,7 +111,7 @@ const Dashboard = () => {
               <img src={shapes} alt="shapes" className="w-[37%] mr-1" />
             </div>
             <div className="flex flex-col bg-mainBlue h-[55%] mt-5 rounded-2xl justify-center ">
-              <ChartSocial />
+              <WeekCheckbox />
             </div>
           </div>
           <img src={separator} alt="separator" className="h-[80%]" />
@@ -149,18 +150,18 @@ const Dashboard = () => {
   );
 };
 
-const ChartSocial = () => {
-  return (
-    <>
-      <h1 className="text-4xl font-bold text-center mt-5 mb-8">
-        Your Statistics
-      </h1>
-      <div className="h-4/6 w-full ml-5 flex justify-center">
-        <Bar data={data} options={options} />
-      </div>
-    </>
-  );
-};
+// const ChartSocial = () => {
+//   return (
+//     <>
+//       <h1 className="text-4xl font-bold text-center mt-5 mb-8">
+//         Your Statistics
+//       </h1>
+//       <div className="h-4/6 w-full ml-5 flex justify-center">
+//         <Bar data={data} options={options} />
+//       </div>
+//     </>
+//   );
+// };
 // const ChartSocial = () => {
 //   return (
 //     <>
@@ -173,6 +174,15 @@ const ChartSocial = () => {
 //     </>
 //   );
 // };
+const ChartSocial = () => {
+  return (
+    <>
+      <h1 className="text-4xl font-bold text-center mt-5 mb-8">
+        Your Statistics
+      </h1>
+    </>
+  );
+};
 const Notifs = ({ name, time, description }) => {
   return (
     <div>
@@ -187,6 +197,15 @@ const Notifs = ({ name, time, description }) => {
         </div>
       </div>
     </div>
+  );
+};
+
+const Schudule = () => {
+  return (
+    <>
+      <WeekCheckbox />
+      <input className="bg-transparent rounded"></input>
+    </>
   );
 };
 export default Dashboard;
