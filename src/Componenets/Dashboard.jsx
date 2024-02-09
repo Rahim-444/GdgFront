@@ -6,18 +6,18 @@ import button from "../assets/button.png";
 const Dashboard = () => {
   return (
     <div className="flex w-screen justify-center">
-      <div className="flex w-[80%] gap-10">
-        <div className="flex flex-col  h-screen w-[50%]">
-          <div className="flex rounded-2xl w-full bg-mainBlue h-1/6 justify-between items-center">
+      <div className="flex w-[98%] gap-1 ">
+        <div className="flex flex-col px-2  h-screen w-[80%]">
+          <div className="flex rounded-2xl w-full bg-mainBlue h-[23%] justify-between items-center">
             <div className="felx flex-col ml-10">
               <h1 className="text-3xl text-white">Hello Abderrahim !</h1>
               <p>its good to see you again!</p>
             </div>
-            <img src={shapes} alt="shapes" className="w-[40%] mr-1" />
+            <img src={shapes} alt="shapes" className="w-[27%] mr-1" />
           </div>
         </div>
         <img src={separator} alt="separator" className="h-full" />
-        <div className="felx felx-col w-1/4">
+        <div className="felx felx-col w-[20%]">
           <h1 className="text-xl text-mainBlue ml-5 font-bold">Announcement</h1>
           <div className="flex flex-col gap-3 bg-mainBlue w-full rounded-xl h-72 items-center">
             <p className="self-start ml-6 mt-3">description</p>
