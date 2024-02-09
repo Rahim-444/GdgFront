@@ -1,6 +1,7 @@
 import React from "react";
 import shapes from "../assets/shapes.svg";
 import separator from "../assets/lineSeparator.svg";
+import button from "../assets/button.png";
 
 const Dashboard = () => {
   return (
@@ -18,13 +19,16 @@ const Dashboard = () => {
         <img src={separator} alt="separator" className="h-full" />
         <div className="felx felx-col w-1/4">
           <h1 className="text-xl text-mainBlue ml-5 font-bold">Announcement</h1>
-          <div className="flex flex-col gap-1 bg-mainBlue w-full rounded-xl h-64 items-center">
-            <p className="self-start ml-6">description</p>
+          <div className="flex flex-col gap-3 bg-mainBlue w-full rounded-xl h-72 items-center">
+            <p className="self-start ml-6 mt-3">description</p>
             <input
               type="text"
               placeholder="description"
               className="w-5/6  rounded-lg border-2 h-40 bg-transparent border-white mt-1 placeholder-mainBlue"
             />
+            <button className="bg-[#4580F3] w-3/4 h-12 rounded-tl-xl rounded-br-xl text-white">
+              Post
+            </button>
           </div>
         </div>
       </div>
