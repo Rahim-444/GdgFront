@@ -1,7 +1,53 @@
-import React from "react";
 import shapes from "../assets/shapes.svg";
 import separator from "../assets/lineSeparator.svg";
-import button from "../assets/button.png";
+import { Chart as Chartjs } from "chart.js/auto";
+import { Bar, Line } from "react-chartjs-2";
+
+let data = {
+  labels: ["10:00", "11:00", "12:00", "13:00"],
+  datasets: [
+    {
+      label: "Rating",
+      data: [30, 40, 50, 11],
+      backgroundColor: "rgba(21, 56, 85,1)",
+      borderColor: "rgba(21, 56, 85,0.2)",
+      borderWidth: 1,
+    },
+  ],
+};
+let data2 = {
+  labels: ["10:00", "11:00", "12:00"],
+  datasets: [
+    {
+      label: "instagram",
+      data: [11, 40, 22],
+      backgroundColor: "rgba(216, 27, 96, 1)",
+      borderColor: "rgba(216, 27, 96, 0.2)",
+      borderWidth: 2,
+    },
+    {
+      label: "facebook",
+      data: [5, 23, 50],
+      backgroundColor: "rgba(66, 103, 178, 1)",
+      borderColor: "rgba(66, 103, 178, 0.2)",
+      borderWidth: 2,
+    },
+    {
+      label: "twitter",
+      data: [55, 22, 11],
+      backgroundColor: "rgba(29, 161, 242, 1)",
+      borderColor: "rgba(29, 161, 242, 0.2)",
+      borderWidth: 2,
+    },
+    {
+      label: "linkedin",
+      data: [3, 10, 5],
+      backgroundColor: "rgba(14, 118, 168, 1)",
+      borderColor: "rgba(14, 118, 168, 0.2)",
+      borderWidth: 2,
+    },
+  ],
+};
 
 const Dashboard = () => {
   return (
@@ -32,7 +78,13 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-    </div>
+      <div className="w-1/2">
+        <Bar data={data} />
+      </div>
+      <div className="w-1/2">
+        <Line data={data2} />
+      </div>
+    </>
   );
 };
 
