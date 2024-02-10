@@ -3,6 +3,7 @@ import separator from "../assets/lineSeparator.svg";
 import { Chart as Chartjs } from "chart.js/auto";
 import { Bar, Line } from "react-chartjs-2";
 import WeekCheckbox from "./Checkbox";
+import axios from "axios";
 import { useState } from "react";
 
 let data = {
@@ -92,44 +93,55 @@ let Notifications = [
 ];
 
 const Dashboard = () => {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
   const [descriptionData, setDescriptionData] = useState(null);
   const [optimalTime, setOptimalTime] = useState("10:00");
 
   const postDescription = async () => {
+    let postData = {
+      time1: "10:00",
+      time2: "11:00",
+    };
     try {
-      const response = await fetch('http://localhost:3000/api/v1', {
-        method: 'POST',
+      await fetch("http://localhost:3001/create-poll", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ description: input })
+        body: JSON.stringify(postData),
       });
-  
+      const response = await fetch("http://localhost:3001/api/v1", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ description: input }),
+      });
+
       if (!response.ok) {
-        throw new Error('Failed to post description');
+        throw new Error("Failed to post description");
       }
-  
+
       // Fetch description data after posting
       fetchDescriptions();
     } catch (error) {
-      console.error('Error posting description:', error);
+      console.error("Error posting description:", error);
       // Handle error
     }
   };
 
   const fetchDescriptions = async () => {
     try {
-      const response = await fetch('http://localhost:3000/api/v1/voices');
+      const response = await fetch("http://localhost:3000/api/v1/voices");
 
       if (!response.ok) {
-        throw new Error('Failed to fetch descriptions');
+        throw new Error("Failed to fetch descriptions");
       }
 
       const data = await response.json();
       setDescriptionData(data);
     } catch (error) {
-      console.error('Error fetching descriptions:', error);
+      console.error("Error fetching descriptions:", error);
       // Handle error
     }
   };

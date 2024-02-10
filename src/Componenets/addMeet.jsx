@@ -50,8 +50,10 @@ const Dashboard = () => {
           <div className="flex flex-col px-2  h-screen w-[80%]">
             <div className="flex rounded-2xl w-full bg-mainBlue h-[23%] justify-between items-center mt-2 overflow-hidden">
               <div className="felx flex-col ml-10">
-                <h1 className="text-3xl text-white">Hello Abderrahim !</h1>
-                <p>its good to see you again!</p>
+                <h1 className="text-3xl text-white ">
+                  Hello <span className="font-bold">Abderrahim ! 👋</span>
+                </h1>
+                <p className="text-xl">its good to see you again!</p>
               </div>
               <img src={shapes} alt="shapes" className="w-[37%] mr-1" />
             </div>
@@ -79,7 +81,6 @@ const Dashboard = () => {
                 className="bg-[#4580F3] w-5/6 h-12 rounded-tl-xl rounded-br-xl text-white"
                 type="submit"
                 onClick={() => {
-                  window.alert(input);
                   fetchApi();
                 }}
               >
