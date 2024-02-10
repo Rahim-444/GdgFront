@@ -23,7 +23,7 @@ let data = {
   datasets: [
     {
       label: "Rating",
-      data: [30, 40, 50, 11, 56, 55, 40, 30, 20, 10, 5, 1],
+      data: [30, 32, 29, 11, 7, 10, 23, 31, 48, 52, 55, 60],
       backgroundColor: "rgba(234, 243, 248,1)",
       borderColor: "rgba(255,255,255,1)",
       borderWidth: 1,
@@ -76,13 +76,6 @@ const options = {
       },
     },
   },
-  plugins: {
-    legend: {
-      labels: {
-        color: "white",
-      },
-    },
-  },
 };
 
 let Notifications = [
@@ -124,16 +117,17 @@ const Dashboard = () => {
             </h1>
             <div className="flex flex-col gap-3 bg-mainBlue w-full rounded-xl h-72 items-center">
               <p className="self-start ml-6 mt-3">Description</p>
-              <input
-                type="text"
-                placeholder="description"
-                className="w-5/6  rounded-lg border-2 h-40 bg-transparent border-white mt-1 placeholder-mainBlue"
-                onChange={(e) => {
-                  setInput(e.target.value);
-                }}
-              />
+              <div className="w-5/6  rounded-lg border-2 h-40 bg-transparent border-white mt-1 placeholder-mainBlue">
+                <textarea
+                  type="text"
+                  className="bg-transparent border-none w-full focus:border-none active:border-none h-full"
+                  onChange={(e) => {
+                    setInput(e.target.value);
+                  }}
+                />
+              </div>
               <button
-                className="bg-[#4580F3] w-3/4 h-12 rounded-tl-xl rounded-br-xl text-white"
+                className="bg-[#4580F3] w-5/6 h-12 rounded-tl-xl rounded-br-xl text-white"
                 type="submit"
                 onClick={() => {
                   window.alert(input);
@@ -180,27 +174,6 @@ const ChartSocial = ({ optimalTime }) => {
     </>
   );
 };
-// const ChartSocial = () => {
-//   return (
-//     <>
-//       <h1 className="text-4xl font-bold text-center mt-5 mb-8">
-//         Your Statistics
-//       </h1>
-//       <div className="h-4/6 w-full ml-5 flex justify-center text-white">
-//         <Line data={data} options={options} />
-//       </div>
-//     </>
-//   );
-// };
-// const ChartSocial = () => {
-//   return (
-//     <>
-//       <h1 className="text-4xl font-bold text-center mt-5 mb-8">
-//         Your Statistics
-//       </h1>
-//     </>
-//   );
-// };
 const Notifs = ({ name, time, description }) => {
   return (
     <div>

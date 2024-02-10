@@ -31,7 +31,20 @@ let data = {
   ],
 };
 let data2 = {
-  labels: ["10:00", "11:00", "12:00"],
+  labels: [
+    "10:00",
+    "11:00",
+    "12:00",
+    "13:00",
+    "14:00",
+    "15:00",
+    "16:00",
+    "17:00",
+    "18:00",
+    "19:00",
+    "20:00",
+    "21:00",
+  ],
   datasets: [
     {
       label: "instagram",
@@ -124,16 +137,17 @@ const Dashboard = () => {
             </h1>
             <div className="flex flex-col gap-3 bg-mainBlue w-full rounded-xl h-72 items-center">
               <p className="self-start ml-6 mt-3">Description</p>
-              <input
-                type="text"
-                placeholder="description"
-                className="w-5/6  rounded-lg border-2 h-40 bg-transparent border-white mt-1 placeholder-mainBlue"
-                onChange={(e) => {
-                  setInput(e.target.value);
-                }}
-              />
+              <div className="w-5/6  rounded-lg border-2 h-40 bg-transparent border-white mt-1 placeholder-mainBlue">
+                <textarea
+                  type="text"
+                  className="bg-transparent border-none w-full focus:border-none active:border-none h-full"
+                  onChange={(e) => {
+                    setInput(e.target.value);
+                  }}
+                />
+              </div>
               <button
-                className="bg-[#4580F3] w-3/4 h-12 rounded-tl-xl rounded-br-xl text-white"
+                className="bg-[#4580F3] w-5/6 h-12 rounded-tl-xl rounded-br-xl text-white"
                 type="submit"
                 onClick={() => {
                   window.alert(input);
@@ -169,20 +183,11 @@ const ChartSocial = () => {
         Your Statistics
       </h1>
       <div className="h-4/6 w-full ml-5 flex justify-center text-white">
-        <Line data={data} options={options} />
+        <Line data={data2} options={options} />
       </div>
     </>
   );
 };
-// const ChartSocial = () => {
-//   return (
-//     <>
-//       <h1 className="text-4xl font-bold text-center mt-5 mb-8">
-//         Your Statistics
-//       </h1>
-//     </>
-//   );
-// };
 const Notifs = ({ name, time, description }) => {
   return (
     <div>
