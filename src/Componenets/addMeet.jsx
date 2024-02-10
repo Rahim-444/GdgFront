@@ -4,65 +4,8 @@ import { Chart as Chartjs } from "chart.js/auto";
 import { Bar, Line } from "react-chartjs-2";
 import WeekCheckbox from "./Checkbox";
 import { useState } from "react";
+import { fetchApi } from "../../fetch";
 
-let data = {
-  labels: [
-    "10:00",
-    "11:00",
-    "12:00",
-    "13:00",
-    "14:00",
-    "15:00",
-    "16:00",
-    "17:00",
-    "18:00",
-    "19:00",
-    "20:00",
-    "21:00",
-  ],
-  datasets: [
-    {
-      label: "Rating",
-      data: [30, 40, 50, 11, 56, 55, 40, 30, 20, 10, 5, 1],
-      backgroundColor: "rgba(234, 243, 248,1)",
-      borderColor: "rgba(255,255,255,1)",
-      borderWidth: 1,
-    },
-  ],
-};
-let data2 = {
-  labels: ["10:00", "11:00", "12:00"],
-  datasets: [
-    {
-      label: "instagram",
-      data: [11, 40, 22],
-      backgroundColor: "rgba(216, 27, 96, 1)",
-      borderColor: "rgba(216, 27, 96, 0.2)",
-      borderWidth: 2,
-    },
-    {
-      label: "facebook",
-      data: [5, 23, 50],
-      backgroundColor: "rgba(66, 103, 178, 1)",
-      borderColor: "rgba(66, 103, 178, 0.2)",
-      borderWidth: 2,
-    },
-    {
-      label: "twitter",
-      data: [55, 22, 11],
-      backgroundColor: "rgba(29, 161, 242, 1)",
-      borderColor: "rgba(29, 161, 242, 0.2)",
-      borderWidth: 2,
-    },
-    {
-      label: "linkedin",
-      data: [3, 10, 5],
-      backgroundColor: "rgba(14, 118, 168, 1)",
-      borderColor: "rgba(14, 118, 168, 0.2)",
-      borderWidth: 2,
-    },
-  ],
-};
 const options = {
   scales: {
     x: {
@@ -100,7 +43,6 @@ let Notifications = [
 
 const Dashboard = () => {
   const [input, setInput] = useState("");
-  const [optimalTime, setOptimalTime] = useState("10:00");
   return (
     <>
       <div className="flex  justify-center">
@@ -138,6 +80,7 @@ const Dashboard = () => {
                 type="submit"
                 onClick={() => {
                   window.alert(input);
+                  fetchApi();
                 }}
               >
                 Post
@@ -163,18 +106,6 @@ const Dashboard = () => {
   );
 };
 
-// const ChartSocial = () => {
-//   return (
-//     <>
-//       <h1 className="text-4xl font-bold text-center mt-5 mb-8">
-//         Your Statistics
-//       </h1>
-//       <div className="h-4/6 w-full ml-5 flex justify-center text-white">
-//         <Line data={data} options={options} />
-//       </div>
-//     </>
-//   );
-// };
 const Notifs = ({ name, time, description }) => {
   return (
     <div>
