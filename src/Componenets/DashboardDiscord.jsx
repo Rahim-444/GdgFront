@@ -99,8 +99,47 @@ let Notifications = [
 ];
 
 const Dashboard = () => {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
+  const [descriptionData, setDescriptionData] = useState(null);
   const [optimalTime, setOptimalTime] = useState("10:00");
+
+  const postDescription = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/api/v1', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ description: input })
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to post description');
+      }
+  
+      // Fetch description data after posting
+      fetchDescriptions();
+    } catch (error) {
+      console.error('Error posting description:', error);
+      // Handle error
+    }
+  };
+
+  const fetchDescriptions = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/api/v1/voices');
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch descriptions');
+      }
+
+      const data = await response.json();
+      setDescriptionData(data);
+    } catch (error) {
+      console.error('Error fetching descriptions:', error);
+      // Handle error
+    }
+  };
   return (
     <>
       <div className="flex  justify-center">
@@ -135,9 +174,7 @@ const Dashboard = () => {
               <button
                 className="bg-[#4580F3] w-3/4 h-12 rounded-tl-xl rounded-br-xl text-white"
                 type="submit"
-                onClick={() => {
-                  window.alert(input);
-                }}
+                onClick={postDescription}
               >
                 Post
               </button>
